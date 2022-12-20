@@ -1,1 +1,1 @@
-# serpinskiTriangleGenerator
+# Sierpiński triangle generator
