@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triangle genrator</title>
+    <title>Sierpiński triangle generator</title>
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./scripts/index.js" defer></script>
 </head>
@@ -15,9 +15,9 @@
         <h1 class="logo">Logo</h1>
         <nav class="page-nav">
             <ul class="nav-links">
-                <li class="nav-links-item"><a>About me</a></li>
-                <li class="nav-links-item"><a>Git repo</a></li>
-                <li class="nav-links-item"><a>More about Serpinski's triangle</a></li>
+                <li class="nav-links-item"><a target="_blank">About me</a></li>
+                <li class="nav-links-item"><a href="https://github.com/mamba0328/serpinskiTriangleGenerator" target="_blank">Git repo</a></li>
+                <li class="nav-links-item"><a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle" target="_blank">More about Serpinski's triangle</a></li>
             </ul>
         </nav>
     </header>
@@ -43,7 +43,7 @@
                     <label for="three-pixels">Three pixels</label>
                 </fieldset>
             
-                <button>Generate triangle</button>
+                <button id='generate'>Generate triangle</button>
             </form>
         
         <canvas width="1000" height="1000"></canvas>
@@ -57,7 +57,7 @@
                 </label>
             </div>
         
-            <button>Clear canvas?</button>
+            <button id="clear">Clear canvas?</button>
         </div>
     </main>
 </body>

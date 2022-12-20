@@ -34,9 +34,21 @@ html, body{
     margin: 0;
 }
 
+
+
 .nav-links-item{ 
     display: inline-block;
     margin: 0 3em;
+    cursor: pointer;
+}
+
+.nav-links-item>a {
+    color: inherit;
+    text-decoration: inherit;
+
+}
+.nav-links-item:hover {
+    color: #222222a2
 }
 
 .main-content{
@@ -46,6 +58,7 @@ html, body{
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    user-select: none;
 }
 
 .triangle-settings { 
@@ -64,6 +77,10 @@ html, body{
 #quantity-of-dots{
     display: inline-block;
     width: 160px;
+}
+
+#quantity-of-dots:invalid{
+    background-color: rgb(231, 153, 153);
 }
 
 .color{
@@ -184,7 +201,8 @@ input:checked+.slider:before {
 canvas{
     margin: 1rem;
     width: 40vw;
-    border: 10px solid white;
+    border: 10px solid rgb(255, 255, 255);
     padding: 1rem;
     border-radius: 1rem;
+    background-color: rgba(255, 239, 213, 0.473);
 }

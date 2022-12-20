@@ -28,6 +28,12 @@ class TrianglesCanvas {
             this.firstPoint = halfPoint;
         }
     }
+
+    clear() { 
+        this.ctx.clearRect(0, 0, 999, 999);
+        this.ctx.fillStyle = 'black';
+        this.drawCorners();
+    }
 }
 
 const canvas = new TrianglesCanvas(document.querySelector('canvas'));
@@ -35,11 +41,11 @@ canvas.drawCorners();
 
 
 
-const createTriangleButton = document.querySelector('button')
+const createTriangleButton = document.getElementById('generate')
 createTriangleButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    canvas.ctx.fillStyle = document.getElementById('color').value
+    canvas.ctx.fillStyle = document.getElementById('color').value;
     const radioElems = Array.from(document.querySelectorAll('.radio'));
     for (let i = 0; i < radioElems.length; i++){ 
         if (radioElems[i].checked) {
@@ -47,4 +53,9 @@ createTriangleButton.addEventListener('click', (e) => {
         }
     }
     canvas.makeTriangles(document.getElementById('quantity-of-dots').value);
+})
+
+const clearButton = document.getElementById('clear'); 
+clearButton.addEventListener('click', () => { 
+    canvas.clear()
 })
