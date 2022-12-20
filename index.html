@@ -6,12 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triangle genrator</title>
-    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/index.js" defer></script>
 </head>
 
 <body>
-    <main>
+    <header class="page-header">
+        <h1 class="logo">Logo</h1>
+        <nav class="page-nav">
+            <ul class="nav-links">
+                <li class="nav-links-item"><a>About me</a></li>
+                <li class="nav-links-item"><a>Git repo</a></li>
+                <li class="nav-links-item"><a>More about Serpinski's triangle</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+            <form class="triangle-settings">
+                <label for="quantity-of-dots">Quantity of dots</label>
+                <input id="quantity-of-dots" type="text" maxlength="8" pattern="\d*" value="1000">
+                <br>
+                <label for="color" class="color">Dot's color</label>
+                <input id='color' type="color" class="color">
+            
+                <fieldset class="size-of-dot">
+                    <legend>Width of dot</legend>
+            
+                    <input class='radio' type="radio" id="one-pixel" name="pixels-size" data='1' checked>
+                    <label for="one-pixel">One pixel</label>
+            
+            
+                    <input class='radio' type="radio" id="two-pixels" name="pixels-size" data='2'>
+                    <label for="two-pixels">Two pixels</label>
+            
+                    <input class='radio' type="radio" id="three-pixels" name="pixels-size" data="3">
+                    <label for="three-pixels">Three pixels</label>
+                </fieldset>
+            
+                <button>Generate triangle</button>
+            </form>
+        
         <canvas width="1000" height="1000"></canvas>
+
+        <div class="additional-controls">
+            <div>
+                <label for="switch">Dot by dot mode</label>
+                <label class="switch" id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        
+            <button>Clear canvas?</button>
+        </div>
     </main>
 </body>
 
