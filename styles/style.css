@@ -1,6 +1,6 @@
-@import url('./_normalize.css');
-@import url('./_vars.css');
-@import url('../assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf');
+@import url(./_normalize.css);
+@import url(./_vars.css);
+@import url(../assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf);
 
 html, body{
     box-sizing: border-box;
