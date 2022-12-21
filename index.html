@@ -22,6 +22,7 @@
         </nav>
     </header>
     <main class="main-content">
+        <img id='loader' src="./kisspng-moto-moto-madagascar-hippo-girlfriend-youtube-melm-sacha-baron-cohen-5b0e63f3979e70.013441381527669747621.png" width='300'>
             <form class="triangle-settings">
                 <label for="quantity-of-dots">Quantity of dots</label>
                 <input id="quantity-of-dots" type="text" maxlength="8" pattern="\d*" value="1000">
@@ -42,21 +43,21 @@
                     <input class='radio' type="radio" id="three-pixels" name="pixels-size" data="3">
                     <label for="three-pixels">Three pixels</label>
                 </fieldset>
-            
+                
+                <div>
+                    <label for="switch">Sequantial dots</label>
+                    <label class="switch" id="switch">
+                        <input id='dotByDotMode' type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
                 <button id='generate'>Generate triangle</button>
             </form>
         
         <canvas width="1000" height="1000"></canvas>
 
         <div class="additional-controls">
-            <div>
-                <label for="switch">Dot by dot mode</label>
-                <label class="switch" id="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        
             <button id="clear">Clear canvas?</button>
         </div>
     </main>

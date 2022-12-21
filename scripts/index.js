@@ -7,6 +7,7 @@ class TrianglesCanvas {
         this.sizeOfDots = 1;
         this.corners = [[0, 997], [500, 0], [997, 997]];
         this.firstPoint = this.corners[0];
+        this.dotByDot = false; 
     }
 
     drawCorners() {
@@ -29,8 +30,17 @@ class TrianglesCanvas {
         }
     }
 
+    makeTrianglesWithDefer(repeatTimes) {
+        for (let i = 0; i < repeatTimes; i++) {
+            setTimeout(() => {
+                this.makeTriangles(1)
+            }, repeatTimes - i)
+        }
+        
+    }
+
     clear() { 
-        this.ctx.clearRect(0, 0, 999, 999);
+        this.ctx.clearRect(0, 0, 1000, 1000);
         this.ctx.fillStyle = 'black';
         this.drawCorners();
     }
@@ -39,12 +49,19 @@ class TrianglesCanvas {
 const canvas = new TrianglesCanvas(document.querySelector('canvas'));
 canvas.drawCorners();
 
-
-
 const createTriangleButton = document.getElementById('generate')
 createTriangleButton.addEventListener('click', (e) => {
     e.preventDefault();
+    collectSettings()
+    startGeneration()
+})
 
+const clearButton = document.getElementById('clear'); 
+clearButton.addEventListener('click', () => { 
+    canvas.clear()
+})
+
+function collectSettings(e){ 
     canvas.ctx.fillStyle = document.getElementById('color').value;
     const radioElems = Array.from(document.querySelectorAll('.radio'));
     for (let i = 0; i < radioElems.length; i++){ 
@@ -52,10 +69,19 @@ createTriangleButton.addEventListener('click', (e) => {
             canvas.sizeOfDots = i + 1; 
         }
     }
-    canvas.makeTriangles(document.getElementById('quantity-of-dots').value);
-})
 
-const clearButton = document.getElementById('clear'); 
-clearButton.addEventListener('click', () => { 
-    canvas.clear()
-})
+    const modeToggler = document.getElementById('dotByDotMode');
+
+    modeToggler.checked ? canvas.dotByDot = true : canvas.dotByDot = false;
+        
+    if (modeToggler.checked && document.getElementById('quantity-of-dots').value > 999999) {
+        alert('Дохуя ты хочешь, фраерок')
+        alert('Свыше 999 999 с покрапочным модом страница крашится')
+        alert('Так что я урезал твои хотелки до 999 999, наслаждайся')
+        document.getElementById('quantity-of-dots').value = 999999;
+    }
+}
+
+function startGeneration() {
+    canvas.dotByDot ? canvas.makeTrianglesWithDefer(document.getElementById('quantity-of-dots').value) : canvas.makeTriangles(document.getElementById('quantity-of-dots').value);
+}
