@@ -1,5 +1,5 @@
-@import url('../styles/_normalize.css');
-@import url('../styles/_vars.css');
+@import url('_normalize.css');
+@import url('_vars.css');
 @import url('../assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf');
 
 html, body{
