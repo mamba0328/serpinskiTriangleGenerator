@@ -8,6 +8,7 @@ class TrianglesCanvas {
         this.corners = [[0, 997], [500, 0], [997, 997]];
         this.firstPoint = this.corners[0];
         this.dotByDot = false; 
+        this.timeouts = [];
     }
 
     drawCorners() {
@@ -32,9 +33,9 @@ class TrianglesCanvas {
 
     makeTrianglesWithDefer(repeatTimes) {
         for (let i = 0; i < repeatTimes; i++) {
-            setTimeout(() => {
+            this.timeouts.push(setTimeout(() => {
                 this.makeTriangles(1)
-            }, repeatTimes - i)
+            }, repeatTimes - i)) 
         }
         
     }
@@ -43,6 +44,9 @@ class TrianglesCanvas {
         this.ctx.clearRect(0, 0, 1000, 1000);
         this.ctx.fillStyle = 'black';
         this.drawCorners();
+        for (let i=0; i<this.timeouts.length; i++) {
+            clearTimeout(this.timeouts[i]);
+        }
     }
 }
 
